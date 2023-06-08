@@ -1,0 +1,126 @@
+{% extends 'shared/_layout.html' %}
+{% block title %}
+    بلاگ
+{% endblock %}
+{% block content %}
+
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-option normal-breadcrumb spad set-bg" data-setbg="/static/img/breadcrumb-bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__text">
+                        <h2>بلاگ</h2>
+                        <div class="breadcrumb__links">
+                            <a href="{% url 'index_page' %} }"><i class="fa fa-home"></i> خانه</a>
+                            <span>بلاگ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Blog Section Begin -->
+    <section class="blog spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="blog__item__list">
+                        {% for blog in blog_list %}
+
+                            <div class="blog__item" style="margin-top: 94px;">
+                                <div class="blog__item">
+                                    <div class="blog__item__pic set-bg" data-setbg="{{ blog.avatar.url }}" style="">
+                                        <div class="label">{{ blog.category }}</div>
+                                    </div>
+                                    <div class="blog__item__text">
+                                        <div class="blog__date"> {{ blog.get_jalali_created_date }}<span
+                                                class="icon_calendar blog-date"></span></div>
+                                        <a href="{% url 'blog_detail_page' blog.category blog.slug %}">
+                                            <h4>{{ blog.title }}</h4>
+                                        </a>
+                                        <ul>
+                                            <li><span class="icon_profile"></span>{{ blog.author }}</li>
+                                            {#                                        <li><span class="fa fa-comments-o"></span> 6 کامت</li>#}
+                                        </ul>
+                                        <p>
+                                            {{ blog.short_description }}
+                                        </p>
+                                        <a class="read-more"
+                                           href="{% url 'blog_detail_page' blog.category blog.slug %}">ادامه
+                                            مطلب <span
+                                                    class="fa fa-angle-double-left"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                    <div class="blog__pagination">
+                        {% if page_obj.has_previous %}
+                            <a href="?page={{ page_obj.previous_page_number }}">قبلی</a>
+                        {% endif %}
+                        {% for pageNumber in paginator %}
+                            <a href="?page={{ pageNumber.number }}">{{ pageNumber.number }}</a>
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}">بعدی</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="sidebar">
+                        <div class="sidebar__search">
+                            <form action="#">
+                                <input type="text" placeholder="جستجو...">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                        <div class="sidebar__categories">
+                            <h4>دسته بندی ها</h4>
+                            <ul>
+                                {% for category in categories %}
+                                    <li><a href="{% url 'category_page' category.title %}"><i
+                                            class="fa fa-angle-double-left"></i>{{ category.title }}</a></li>
+                                {% endfor %}
+
+                            </ul>
+                        </div>
+                        <div class="sidebar__recent">
+                            <h4>پست های جدید</h4>
+                            {% for latest_post in latest_posts %}
+                                <a href="#" class="sidebar__recent__item">
+                                    <h6>{{ latest_post.title }}</h6>
+                                    <p>{{ latest_post.get_jalali_created_date }}<span class="icon_calendar"></span></p>
+                                </a>
+
+                            {% endfor %}
+
+                        </div>
+                        {#                        <div class="sidebar__banner set-bg" data-setbg="/static/img/episodes-single/sidebar-banner.jpg">#}
+                        {#                            <span>بهترین قالب سفارشی</span>#}
+                        {#                            <h2>پادکست</h2>#}
+                        {#                        </div>#}
+                        {#                        <div class="sidebar__tags">#}
+                        {#                            <h4>برچسب های محبوب</h4>#}
+                        {#                            <a href="#">رمان</a>#}
+                        {#                            <a href="#">ایده_پردازی</a>#}
+                        {#                            <a href="#">پادکست</a>#}
+                        {#                            <a href="#">ویدیو</a>#}
+                        {#                            <a href="#">خلاقیت</a>#}
+                        {#                            <a href="#">ورزش</a>#}
+                        {#                            <a href="#">موزیک</a>#}
+                        {#                        </div>#}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Section End -->
+
+
+
+{% endblock %}

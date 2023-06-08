@@ -1,0 +1,64 @@
+{% extends 'shared/_layout.html' %}
+{% block title %}
+    تماس با ما
+{% endblock %}
+
+{% block content %}
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-option normal-breadcrumb spad set-bg" data-setbg="/static/img/breadcrumb-bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__text">
+                        <h2>تماس با ما</h2>
+                        <div class="breadcrumb__links">
+                            <a href="{% url 'index_page' %}"><i class="fa fa-home"></i> خانه</a>
+                            <span>تماس با ما</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Contact Section Begin -->
+    <section class="contact spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="contact__form">
+                        <h2>رادیو کیبرد را جریان نظرات خود قرار دهید</h2>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    {#                                <input type="text" placeholder="نام شما">#}
+                                    {{ form.name.errors }}
+                                    {{ form.name }}
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    {#                                    <input type="text" placeholder="آدرس ایمیل">#}
+                                    {{ form.email.errors }}
+
+                                    {{ form.email }}
+
+                                </div>
+                                <div class="col-lg-12 text-center">
+                                    {#                                    <textarea placeholder="متن دیدگاه"></textarea>#}
+                                    {{ form.message.errors }}
+                                    {{ form.message }}
+                                    <button type="submit" class="site-btn">ثبت دیدگاه</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'shared/_layout.html' %}
+{% block title %}
+    {{ blog.title }}
+{% endblock %}
+{% block content %}
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="blog-details-hero spad set-bg" data-setbg="/static/img/blog/details/detaills-hero.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="blog__hero__text">
+                        <ul>
+                            <li>{{ blog.get_jalali_created_date }}<span class="icon_calendar"></span></li>
+                            <li><span class="icon_profile"></span> {{ blog.author }}</li>
+                            <li><span class="icon_tags_alt"></span> {{ blog.category }}</li>
+                        </ul>
+                        <h2>{{ blog.title }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Blog Details Section Begin -->
+    <section class="blog-details spad">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="blog__details__content">
+                        <div class="blog__details__text">
+                            <div class="blog__details__pic">
+                                <img src="/static/img/blog/details/blog-details.jpg" alt="">
+                            </div>
+                            <p class="top-text">{{ blog.short_description }}</p>
+
+                            <div class="blog__details__text__item">
+
+                                <h4>{{ blog.title }}</h4>
+
+                                <p>{{ blog.text_content | safe }}</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="blog__details__quote">
+                            <h6>{{ blog.author }}</h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Details Section End -->
+{% endblock %}
