@@ -4,11 +4,9 @@ Welcome to the Podcast Website project! This is a web application designed to sh
 
 ## Features
 
-- **Browse Podcasts**: Users can explore a vast collection of podcasts and filter them by genre, popularity, or date.
+- **Browse Podcasts**: Users can explore a vast collection of podcasts and filter them by genre and season.
 - **Episode Streaming**: Enjoy seamless streaming of podcast episodes directly from the website.
-- **User Accounts**: Users can create accounts, log in, and manage their favorite podcasts and episode playlists.
-- **Comments and Reviews**: Engage with other listeners by leaving comments and reviews on episodes.
-- **Search Functionality**: Easily find specific podcasts or episodes using the search feature.
+- **Search**: Easily find specific podcasts or episodes using the search feature.
 
 ## Tech Stack
 
