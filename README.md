@@ -12,7 +12,7 @@ Welcome to the Podcast Website project! This is a web application designed to sh
 
 ## Tech Stack
 
-- **Backend**: The backend of this project is built using Python and the Django framework, providing a robust and secure foundation for handling data and user authentication.
+- **Backend**: The backend of this project is built using Python and the Django framework, providing a robust and secure foundation for handling data.
 - **Frontend**: The frontend is developed using HTML, CSS, and JavaScript, ensuring a responsive and intuitive user interface.
 - **Database**: We utilize a SQL database to efficiently manage and store podcast information and user data.
 
